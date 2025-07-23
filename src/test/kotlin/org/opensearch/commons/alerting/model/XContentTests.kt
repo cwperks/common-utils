@@ -249,6 +249,7 @@ class XContentTests {
         val userString = user.toXContent(builder(), ToXContent.EMPTY_PARAMS).string()
         val parsedUser = User.parse(parser(userString))
         Assertions.assertEquals(user, parsedUser, "Round tripping user doesn't work")
+        Assertions.assertEquals(2, parsedUser.customAttributes.size)
     }
 
     @Test
